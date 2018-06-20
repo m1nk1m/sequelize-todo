@@ -6,7 +6,13 @@
     "host": "127.0.0.1",
     "dialect": "mysql",
     "define": {
-      "timestamp": false
+      "underscored": false,
+      "freezeTableName": false,
+      "charset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      },
+      "timestamps": false
     }
   },
   "test": {
@@ -14,13 +20,31 @@
     "password": null,
     "database": "test_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "underscored": false,
+      "freezeTableName": false,
+      "charset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      },
+      "timestamps": false
+    }
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "test_production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "underscored": false,
+      "freezeTableName": false,
+      "charset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      },
+      "timestamps": false
+    }
   }
 }
