@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   var Todo = sequelize.define('Todo', {
     body: DataTypes.STRING,
-    complete: DataTypes.NUMBER,
+    complete: DataTypes.INTEGER,
     created: DataTypes.DATE
   }, {});
   Todo.associate = function(models) {
