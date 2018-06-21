@@ -1,6 +1,5 @@
 const models = require('../models'),
-  express = require('express'),
-  router = express.Router();
+  router = require('express').Router();
 
 module.exports = () => {
   const getTodos = async (req, res) => {
