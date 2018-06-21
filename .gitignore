@@ -65,3 +65,6 @@ typings/
 
 # Serverless directories
 .serverless
+
+# Should not include .env file for security purpose!
+.env
