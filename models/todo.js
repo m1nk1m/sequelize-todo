@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Todo = sequelize.define('Todo', {
+  const Todo = sequelize.define('Todo', {
     body: DataTypes.STRING,
     complete: DataTypes.INTEGER,
     created: DataTypes.DATE

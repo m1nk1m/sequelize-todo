@@ -5,12 +5,10 @@ const createError = require('http-errors'),
   path = require('path'),
   cookieParser = require('cookie-parser'),
   logger = require('morgan'),
-  cors = require('cors');
-
-var indexRouter = require('./routes/index');
-var todoRouter = require('./routes/todos');
-
-var app = express();
+  cors = require('cors'),
+  indexRouter = require('./routes/index'),
+  todoRouter = require('./routes/todos'),
+  app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

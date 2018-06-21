@@ -1,5 +1,3 @@
-const nodeEnv = process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'production';
-
 module.exports = {
   database: {
     username: process.env.DB_USER || "root",

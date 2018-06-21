@@ -46,12 +46,18 @@ module.exports = () => {
       });
       
       if (isDeleted) {
-        res.json({ success: true, payload: todo });
+        res.json({ 
+          success: true, 
+          payload: { id: req.params.id} 
+        });
       } else {
         throw new TypeError("somethign went wrong");
       }
     } catch (err) {
-      res.json({ success: true, payload: err });
+      res.json({ 
+        success: true, 
+        payload: err 
+      });
     }
   };
 
