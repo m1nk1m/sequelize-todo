@@ -7,8 +7,6 @@
 4. make sure all the dev dependencies are installed
 5. ```npm start```
 
-run ```npm migrate``` will create a table required to run this application if it does not exist. 
-
 ### How to test
 1. Make sure the app is runnable first
 2. run ```npm test```

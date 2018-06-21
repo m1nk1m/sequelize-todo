@@ -1,5 +1,5 @@
 module.exports = {
-  database: {
+  development: {
     username: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || null,
     database: process.env.DB_SCHEMA_NAME,
