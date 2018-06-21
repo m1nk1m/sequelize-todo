@@ -7,6 +7,21 @@
 4. make sure all the dev dependencies are installed
 5. ```npm start```
 
+### .env file
+Make sure you modify these values in the copy of .env.sample file (name it as .env)
+```
+NODE_ENV=development
+
+# Database Config
+DB_HOST=${host}
+DB_USER=${user}
+DB_PASSWORD=${password}
+DB_DIALET=mysql
+DB_SCHEMA_NAME=${db}
+
+# Port Number
+PORT=${port}
+```
 ### How to test
 1. Make sure the app is runnable first
 2. run ```npm test```
