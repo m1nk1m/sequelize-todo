@@ -1,39 +1,63 @@
-var models = require('../models');
-var express = require('express');
-var router = express.Router();
+const models = require('../models'),
+  express = require('express'),
+  router = express.Router();
 
-/* GET todos listing. */
-router.get('/', (req, res) => {
-  models.Todo.findAll().then(todos => {
-    res.json({
-      success:true,
-      payload: todos
-    });
-  });
-});
-
-
-router.post('/', (req, res) => {
-  models.Todo.create({
-    body: req.body.body,
-    complete: 0,
-    created: new Date() 
-  }).then(todo => {
-    res.json({
-      success: true,
-      payload: todo
-    });
-  });
-});
-
-router.delete('/:id/', function (req, res) {
-  models.Todo.destroy({
-    where: {
-      id: req.params.id
+module.exports = () => {
+  const getTodos = async (req, res) => {
+    try {
+      const todos = await models.Todo.findAll();
+      res.json({
+        success: true,
+        payload: todos
+      });
+    } catch(err) {
+      res.json({
+        success: true,
+        payload: err
+      });
     }
-  }).then((result) => {
-    res.json({ success: Boolean(result) });
-  });
-});
+  };
 
-module.exports = router;
+
+  const postTodo = async (req, res) => {
+    try {
+      const todo = await models.Todo.create({
+        body: req.body.body,
+        complete: 0,
+        created: new Date()
+      });
+
+      res.json({
+        success: true,
+        payload: todo
+      });
+    } catch (err) {
+      res.json({
+        success: true,
+        payload: err
+      });
+    }
+  };
+
+  // check this part
+  const deleteTodo = async (req, res) => {
+    try {
+      const isDeleted = await models.Todo.destroy({
+        where: { id: req.params.id }
+      });
+      
+      if (isDeleted) {
+        res.json({ success: true, payload: todo });
+      } else {
+        throw new TypeError("somethign went wrong");
+      }
+    } catch (err) {
+      res.json({ success: true, payload: err });
+    }
+  };
+
+  return router
+    .get('/', getTodos)
+    .post('/', postTodo)
+    .delete('/:id', deleteTodo);
+}
