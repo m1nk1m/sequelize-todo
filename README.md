@@ -1,6 +1,6 @@
 # SequelizeJS and ExpressJS Todo API
 
-#### How to run
+### How to run
 1. run ```npm install```
 2. make a copy of .env.sample file and name it as .env
 3. put the right config values for env variables (must do to run the server)
