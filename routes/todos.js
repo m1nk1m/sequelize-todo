@@ -5,15 +5,9 @@ module.exports = () => {
   const getTodos = async (req, res) => {
     try {
       const todos = await models.Todo.findAll();
-      res.json({
-        success: true,
-        payload: todos
-      });
+      res.json({ success: true, payload: todos });
     } catch(err) {
-      res.json({
-        success: true,
-        payload: err
-      });
+      res.json({ success: true, payload: err });
     }
   };
 
@@ -35,10 +29,7 @@ module.exports = () => {
       }
 
     } catch (err) {
-      res.json({
-        success: true,
-        payload: err
-      });
+      res.json({ success: true, payload: err });
     }
   };
 
@@ -51,18 +42,12 @@ module.exports = () => {
       
       if (isDeleted) {
         const todos = await models.Todo.findAll();
-        res.json({ 
-          success: true, 
-          payload: todos 
-        });
+        res.json({ success: true, payload: todos });
       } else {
         throw new TypeError("somethign went wrong");
       }
     } catch (err) {
-      res.json({ 
-        success: true, 
-        payload: err 
-      });
+      res.json({ success: true, payload: err });
     }
   };
 
