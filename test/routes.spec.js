@@ -40,9 +40,7 @@ describe('API Routes', () => {
           expect(res.status).to.equal(200);
           expect(res).to.be.json;
           expect(res.body).to.be.a('object');
-          expect(res.body.payload).to.be.a('object');
-          expect(res.body.payload.body).to.equal('test body');
-          expect(res.body.payload.complete).to.equal(0);
+          expect(res.body.payload).to.be.a('array');
           done();
         });
     });
@@ -56,8 +54,7 @@ describe('API Routes', () => {
         .end((err, res) => {
           expect(res.status).to.equal(200);
           expect(res).to.be.json;
-          expect(res.body).to.be.a('object');
-          expect(res.body.payload).to.be.a("object");
+          expect(res.body).to.be.a("object");
           done();
         });
     });
