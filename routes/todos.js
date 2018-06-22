@@ -19,17 +19,21 @@ module.exports = () => {
 
 
   const postTodo = async (req, res) => {
-    try {
-      const todo = await models.Todo.create({
-        body: req.body.body,
-        complete: 0,
-        created: new Date()
-      });
+    const todo = {
+      body: req.body.body,
+      completed: 0,
+      created: new Date()
+    };
 
-      res.json({
-        success: true,
-        payload: todo
-      });
+    try {
+      const newTodo = await models.Todo.create(todo);
+      if (newTodo) {
+        const todos = await models.Todo.findAll();
+        res.json({ success: true, payload: todos });
+      } else {
+        throw new TypeError("somethign went wrong");
+      }
+
     } catch (err) {
       res.json({
         success: true,
@@ -46,9 +50,10 @@ module.exports = () => {
       });
       
       if (isDeleted) {
+        const todos = await models.Todo.findAll();
         res.json({ 
           success: true, 
-          payload: { id: req.params.id} 
+          payload: todos 
         });
       } else {
         throw new TypeError("somethign went wrong");
